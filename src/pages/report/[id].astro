@@ -1,0 +1,62 @@
+---
+const { id } = Astro.params;
+
+const res = await fetch(`https://api.spaceflightnewsapi.net/v3/reports/${id}`);
+
+const reports = await res.json();
+---
+
+<div class="wrapper">
+  <h1>{reports.title}</h1>
+  <h2>{reports.newsSite}</h2>
+  <div class="content">
+    <img src={reports.imageUrl} class="img" />
+    <div class="summary-container">
+      <p>{reports.summary}</p>
+    </div>
+  </div>
+</div>
+
+<style>
+  @inject "tokencss:base";
+
+  .wrapper {
+    margin: 3rem;
+    color: gray.6;
+  }
+
+  h1 {
+    padding-bottom: 1rem;
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+
+  h2 {
+    padding-bottom: 1rem;
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .img {
+    width: auto;
+    height: auto;
+  }
+
+  .summary-container {
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+    background-color: gray;
+  }
+
+  p {
+    margin-top: 1rem;
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
+</style>

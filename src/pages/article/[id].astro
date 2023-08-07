@@ -1,0 +1,61 @@
+---
+const { id } = Astro.params;
+
+const articleResponse = await fetch(
+  `https://api.spaceflightnewsapi.net/v3/articles/${id}`
+);
+
+const articleData = await articleResponse.json();
+---
+
+<div class="wrapper">
+  <h1>{articleData.title}</h1>
+  <h2>{articleData.newsSite}</h2>
+  <div class="content">
+    <img src={articleData.imageUrl} class="img" />
+    <div class="summary-container">
+      <p>{articleData.summary}</p>
+    </div>
+  </div>
+</div>
+<style>
+  .wrapper {
+    margin: 3rem;
+    color: blue;
+  }
+
+  h1 {
+    padding-bottom: 1rem;
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+
+  h2 {
+    padding-bottom: 1rem;
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .img {
+    width: auto;
+    height: auto;
+  }
+
+  .summary-container {
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+    background-color: gray;
+  }
+
+  p {
+    margin-top: 1rem;
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+  }
+</style>
