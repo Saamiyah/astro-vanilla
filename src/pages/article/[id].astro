@@ -10,7 +10,7 @@ const articleData = await articleResponse.json();
 
 <div class="wrapper">
   <h1>{articleData.title}</h1>
-  <h2>{articleData.newsSite}</h2>
+  <p>{articleData.newsSite}</p>
   <div class="content">
     <img src={articleData.imageUrl} class="img" />
     <div class="summary-container">
@@ -19,18 +19,13 @@ const articleData = await articleResponse.json();
   </div>
 </div>
 <style>
+  @inject "tokencss:base";
   .wrapper {
     margin: 3rem;
-    color: blue;
+    color: gray.8;
   }
 
   h1 {
-    padding-bottom: 1rem;
-    font-size: 1.5rem;
-    line-height: 2rem;
-  }
-
-  h2 {
     padding-bottom: 1rem;
     font-size: 1.5rem;
     line-height: 2rem;
@@ -40,6 +35,7 @@ const articleData = await articleResponse.json();
     display: flex;
     flex-direction: column;
     justify-content: center;
+    color: gray.8;
   }
 
   .img {
@@ -50,7 +46,8 @@ const articleData = await articleResponse.json();
   .summary-container {
     padding: 1.5rem;
     margin-top: 1.5rem;
-    background-color: gray;
+    background-color: gray.2;
+    size: xl;
   }
 
   p {

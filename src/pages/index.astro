@@ -64,6 +64,7 @@ const reports = reportData.slice(0, 20);
   </main>
 </Layout>
 <style>
+  @inject "tokencss:base";
   h1 {
     padding: 1rem;
     margin-left: 1.5rem;
@@ -71,13 +72,14 @@ const reports = reportData.slice(0, 20);
     font-size: 1.5rem;
     line-height: 2rem;
     text-align: center;
+    color: gray.2;
   }
 
   .container {
     padding: 1rem;
     padding-left: 1.5rem;
     padding-right: 1.5rem;
-    background-color: #f3f4f6;
+    background-color: gray.2;
   }
 
   p {

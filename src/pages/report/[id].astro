@@ -8,7 +8,7 @@ const reports = await res.json();
 
 <div class="wrapper">
   <h1>{reports.title}</h1>
-  <h2>{reports.newsSite}</h2>
+  <p>{reports.newsSite}</p>
   <div class="content">
     <img src={reports.imageUrl} class="img" />
     <div class="summary-container">
@@ -19,19 +19,12 @@ const reports = await res.json();
 
 <style>
   @inject "tokencss:base";
-  @inject "tokencss:base";
   .wrapper {
     margin: 3rem;
-    color: gray.6;
+    color: gray.8;
   }
 
   h1 {
-    padding-bottom: 1rem;
-    font-size: 1.5rem;
-    line-height: 2rem;
-  }
-
-  h2 {
     padding-bottom: 1rem;
     font-size: 1.5rem;
     line-height: 2rem;
@@ -51,7 +44,7 @@ const reports = await res.json();
   .summary-container {
     padding: 1.5rem;
     margin-top: 1.5rem;
-    background-color: gray;
+    background-color: gray.2;
   }
 
   p {

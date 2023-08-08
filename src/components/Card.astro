@@ -3,12 +3,14 @@ const { article, articleType } = Astro.props;
 ---
 
 <div class="card">
-  <img src={article.imageUrl} class="img" />
+  <a href={`/${articleType}/${article.id}`}>
+    <img src={article.imageUrl} class="img" />
+  </a>
   <h2>{article.title}</h2>
   <p>{article.summary}</p>
-  <a href={`/${articleType}/${article.id}`}></a>
 </div>
 <style>
+  @inject "tokencss:base";
   .card {
     display: flex;
     padding: 1.5rem;
@@ -28,26 +30,10 @@ const { article, articleType } = Astro.props;
     font-size: 1.25rem;
     line-height: 1.75rem;
     font-weight: 700;
-    color: #374151;
+    color: gray.8;
   }
 
   p {
-    color: #374151;
+    color: gray.7;
   }
-
-  a {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-  }
-
-  /* .link-card:is(:hover, :focus-within) {
-		background-position: 0;
-		background-image: var(--accent-gradient);
-	}
-	.link-card:is(:hover, :focus-within) h2 {
-		color: rgb(var(--accent-light));
-	} */
 </style>
